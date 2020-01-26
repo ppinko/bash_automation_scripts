@@ -19,20 +19,22 @@ eg. path/rename_images.sh ~/images/ holiday"
 	exit $E_BADARG
 fi
 
-echo "TEST"
-
+# Main logic block
 count_png=0
 count_jpg=0
 list=(`ls $1`)
-echo $list
-pushd .
+pushd . &> /dev/null
 cd $1
 for file in "${list[@]}"; do
-	echo "$file"
 	case "$file" in
 		*.png ) mv $file "${2}_${count_png}.png" && ((count_png++));;
 		*.jpg ) mv $file "${2}_${count_jpg}.jpg" && ((count_jpg++));;
-		* ) : ;;	
 	esac
 done
-popd
+popd &> /dev/null
+
+# Showing short summary of action
+echo "Number of renamed .png files: $count_png"
+echo "Number of renamed .png files: $count_jpg"
+
+exit 0
