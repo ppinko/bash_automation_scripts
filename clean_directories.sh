@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # script deleting empty files and directories from a given directory
-# USEAGE: script_name <dir_path>
+# USEAGE: script_name <dir_path/>
 
 E_NUMARG=40
 E_BADARG=50
