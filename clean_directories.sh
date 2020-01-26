@@ -38,8 +38,6 @@ else
 			((count++))
         elif [[ -d "${1}${element}" ]]; then
         	dir_recursive "${1}${element}/"
-        else
-            :
         fi
     done
 fi
@@ -53,7 +51,7 @@ echo
 if [[ "$count" -ne 1 ]]; then
 	echo "$count files/directories were deleted"
 else
-	echo "$count was deleted"
+	echo "$count file/directory was deleted"
 fi
 
 
